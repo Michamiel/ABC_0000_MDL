@@ -16,7 +16,7 @@ public class Fraction {
         this.denominator = denominator;
     }
 
-    private int GetPgcd(){
+    private int GetPgcd() {
         int a = this.numerator;
         int b = this.denominator;
         int pgcd = 1;
@@ -89,7 +89,7 @@ public class Fraction {
 
     }
 
-    public void Reduire(){
+    public void Reduire() {
 
         if (denominator < 0) {
             denominator = denominator * (-1);
@@ -115,54 +115,139 @@ public class Fraction {
             pgcd = a;
         }
 
-        numerator = numerator/pgcd;
-        denominator = denominator/pgcd;
+        numerator = numerator / pgcd;
+        denominator = denominator / pgcd;
 
         System.out.println("La fraction réduite est " + numerator + "/" + denominator);
 
     }
 
+    public void Plus(Fraction f1, Fraction f2) {
 
-    public void Plus(Fraction f1, Fraction f2){
+        int addidenominator = f1.denominator * f2.denominator;
+        int f1numerator = f1.numerator * f2.denominator;
+        int f2numerator = f2.numerator * f1.denominator;
+        int addinumerator = f1numerator + f2numerator;
 
-        int addidenominator = f1.denominator*f2.denominator;
-        int f1numerator = f1.numerator*f2.denominator;
-        int f2numerator = f2.numerator*f1.denominator;
-        int addinumerator = f1numerator+f2numerator;
+        int a = addinumerator;
+        int b = addidenominator;
+        int pgcd = 1;
 
-            System.out.println("\n" + addinumerator + "/" + addidenominator);
-
-            int a = addinumerator;
-            int b = addidenominator;
-            int pgcd = 1;
-    
-            if (a != 0 && b != 0) {
-                if (a < 0)
-                    a = -a;
-                if (b < 0)
-                    b = -b;
-                while (a != b) {
-                    if (a < b) {
-                        b = b - a;
-                    } else {
-                        a = a - b;
-                    }
+        if (a != 0 && b != 0) {
+            if (a < 0)
+                a = -a;
+            if (b < 0)
+                b = -b;
+            while (a != b) {
+                if (a < b) {
+                    b = b - a;
+                } else {
+                    a = a - b;
                 }
-                pgcd = a;
             }
-
-            System.out.println("\n" + pgcd);
-
-            addinumerator = addinumerator/pgcd;
-            addidenominator = addidenominator/pgcd;
-
-            System.out.println("\n" + addinumerator + "/" + addidenominator);
-
+            pgcd = a;
         }
 
+        addinumerator = addinumerator / pgcd;
+        addidenominator = addidenominator / pgcd;
+
+        System.out.println("\n" + addinumerator + "/" + addidenominator);
 
     }
 
-    
+    public void Moins(Fraction f1, Fraction f2) {
 
+        int sousdenominator = f1.denominator * f2.denominator;
+        int f1numerator = f1.numerator * f2.denominator;
+        int f2numerator = f2.numerator * f1.denominator;
+        int sousnumerator = f1numerator - f2numerator;
 
+        int a = sousnumerator;
+        int b = sousdenominator;
+        int pgcd = 1;
+
+        if (a != 0 && b != 0) {
+            if (a < 0)
+                a = -a;
+            if (b < 0)
+                b = -b;
+            while (a != b) {
+                if (a < b) {
+                    b = b - a;
+                } else {
+                    a = a - b;
+                }
+            }
+            pgcd = a;
+        }
+
+        sousnumerator = sousnumerator / pgcd;
+        sousdenominator = sousdenominator / pgcd;
+
+        System.out.println("\n" + sousnumerator + "/" + sousdenominator);
+
+    }
+
+    public void Multiplie(Fraction f1, Fraction f2) {
+
+        int multidenominator = f1.denominator * f2.denominator;
+        int multinumerator = f1.numerator * f2.numerator;   
+
+        int a = multinumerator;
+        int b = multidenominator;
+        int pgcd = 1;
+
+        if (a != 0 && b != 0) {
+            if (a < 0)
+                a = -a;
+            if (b < 0)
+                b = -b;
+            while (a != b) {
+                if (a < b) {
+                    b = b - a;
+                } else {
+                    a = a - b;
+                }
+            }
+            pgcd = a;
+        }
+
+        multinumerator = multinumerator / pgcd;
+        multidenominator = multidenominator / pgcd;
+
+        System.out.println("\n" + multinumerator + "/" + multidenominator);
+
+    }
+
+    public void Divise(Fraction f1, Fraction f2) {
+
+        int dividenominator = f1.denominator * f2.numerator;
+        int divinumerator = f1.numerator * f2.denominator;   
+
+        int a = divinumerator;
+        int b = dividenominator;
+        int pgcd = 1;
+
+        if (a != 0 && b != 0) {
+            if (a < 0)
+                a = -a;
+            if (b < 0)
+                b = -b;
+            while (a != b) {
+                if (a < b) {
+                    b = b - a;
+                } else {
+                    a = a - b;
+                }
+            }
+            pgcd = a;
+        }
+
+        divinumerator = divinumerator / pgcd;
+        dividenominator = dividenominator / pgcd;
+
+        System.out.println("\n" + divinumerator + "/" + dividenominator);
+
+    }
+
+}
